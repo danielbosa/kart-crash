@@ -21,3 +21,9 @@ const gridMatrix = [
     ['', '', '', '', '', '', ''],
     ['', '', '', '', '', 'rock', ''],
 ];
+
+// Impostazioni di partenza
+let turbo = 1;
+let score = 0;
+let speed = 500;
+let kartPosition = { y: 7, x: 3 };
