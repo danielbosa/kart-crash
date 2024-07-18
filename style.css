@@ -212,11 +212,9 @@ a.button:active {
 	line-height: 32px;
 	padding: 0 16px;
 	height: 64px;
-
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
 	color: #5d7394;
 	border-radius: 10px;
 	background-color: white;
@@ -247,7 +245,6 @@ a.button:active {
 	display: block;
 	width: 100%;
 	align-content: center;
-
 	margin-bottom: 24px;
 	height: calc(56px - 10px);
 }
@@ -257,7 +254,6 @@ a.button:active {
 	height: 44px;
 	border-radius: 15px;
 	background-color: #ecffb3;
-
 	line-height: 18px;
 	font-size: 12px;
 	font-family: Inter, sans-serif;
