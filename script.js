@@ -119,3 +119,7 @@ document.addEventListener('keyup', function (e) {
         default: return;
     }
 })
+
+// ESECUZIONE GIOCO
+// scrollo automaticamente la griglia con gli ostacoli
+setInterval(scrollObstacles, speed);
