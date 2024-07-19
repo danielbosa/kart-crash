@@ -13,7 +13,7 @@ const gridMatrix = [
 
 
 
-// Algoritmo di Fisher-Yates
+// Algoritmo di Fisher-Yates usata in shuffleRow
 for (let i = row.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [row[i], row[j]] = [row[j], row[i]];
