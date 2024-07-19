@@ -46,14 +46,14 @@ function placeKart() {
 function moveKart(direction){
     // tolgo kart da posizione precedente
     gridMatrix[kartPosition.y][kartPosition.x] = '';
-    
+
     // aggiorno coordinate di posizione kart in base alla direzione
     switch(direction){
         case 'left':
-            kartPosition.x--;
+            if(kartPosition.x > 0) kartPosition.x--;
             break;
         case 'right':
-            kartPosition.x++;
+            if(kartPosition.x < 6) kartPosition.x++;
             break;
         default: return;
     }
