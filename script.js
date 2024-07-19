@@ -40,6 +40,9 @@ function placeKart() {
     gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
 }
 
+// funzione pe muovere kart
+
+
 // FUNZIONE DI RENDERING DI TUTTI GLI ELEMENTI
 function renderElements() {
     // posiziono kart
@@ -47,3 +50,27 @@ function renderElements() {
     // render griglia
     renderGrid();
 }
+
+// EVENTI DI GIOCO
+// Click su bottone LEFT
+leftButton.addEventListener('click', function(){
+
+});
+
+// Click su bottone RIGHT
+rightButton.addEventListener('click', function(){
+
+});
+
+// Reazione a frecce di tastiera
+document.addEventListener('keyup', function(e){
+    switch(e.key){
+        case 'ArrowLeft':
+            leftButton.click();
+            break;
+        case 'ArrowRight':
+            rightButton.click();
+            break;
+        default: return;
+    }    
+})
