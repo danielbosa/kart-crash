@@ -55,7 +55,8 @@ function moveKart(direction){
         case 'right':
             if(kartPosition.x < 6) kartPosition.x++;
             break;
-        default: return;
+        default: 
+            gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
     }
 }
 
