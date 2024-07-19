@@ -32,3 +32,11 @@ function renderGrid() {
         })
     })
 }
+
+// FUNZIONI KART
+// posizionare il kart
+function placeKart() {
+    // all'inizio metto kart nella posizione stabili da variabile globale kartPosition
+    gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
+}
+
