@@ -9,19 +9,6 @@ const playAgainButton = document.querySelector('.play-again');
 const finalScore = document.querySelector('.final-score');
 const turboButton = document.querySelector('#turbo');
 
-// Prepariamo la griglia iniziale
-const gridMatrix = [
-    ['', '', '', '', '', 'grass', ''],
-    ['', 'cones', '', '', '', '', 'fence'],
-    ['', '', 'rock', '', '', '', ''],
-    ['fence', '', '', '', '', '', ''],
-    ['', '', 'grass', '', '', 'water', ''],
-    ['', '', '', '', 'cones', '', ''],
-    ['', 'water', '', '', '', '', ''],
-    ['', '', '', '', '', '', ''],
-    ['', '', '', '', '', 'rock', ''],
-];
-
 // Impostazioni di partenza
 let turbo = 1;
 let score = 0;
