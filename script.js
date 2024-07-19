@@ -16,6 +16,8 @@ let speed = 500;
 let kartPosition = { y: 7, x: 3 };
 
 function renderGrid() {
+    // svuoto griglia
+    grid.innerHTML = '';
     // per ogni riga della matrice
     gridMatrix.forEach(function(rowCells){
         // per ogni cella della riga
@@ -40,7 +42,24 @@ function placeKart() {
     gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
 }
 
-// funzione pe muovere kart
+// funzione per muovere kart
+function moveKart(direction){
+    // tolgo kart da posizione precedente
+    gridMatrix[kartPosition.y][kartPosition.x] = '';
+    
+    // aggiorno coordinate di posizione kart in base alla direzione
+    switch(direction){
+        case 'left':
+            kartPosition.x--;
+            break;
+        case 'right':
+            kartPosition.x++;
+            break;
+        default: return;
+    }
+}
+
+// reindirizzo elementi
 
 
 // FUNZIONE DI RENDERING DI TUTTI GLI ELEMENTI
@@ -54,22 +73,22 @@ function renderElements() {
 // EVENTI DI GIOCO
 // Click su bottone LEFT
 leftButton.addEventListener('click', function(){
-
+    moveKart('left');
 });
 
 // Click su bottone RIGHT
 rightButton.addEventListener('click', function(){
-
+    moveKart('right');
 });
 
 // Reazione a frecce di tastiera
 document.addEventListener('keyup', function(e){
     switch(e.key){
         case 'ArrowLeft':
-            leftButton.click();
+            moveKart('left');
             break;
         case 'ArrowRight':
-            rightButton.click();
+            moveKart('right');
             break;
         default: return;
     }    
