@@ -1,4 +1,4 @@
-// # FASE DI PREPARAZIONE
+// FASE DI PREPARAZIONE
 // Recupero gli elementi di interesse dalla pagina
 const grid = document.querySelector('.grid');
 const scoreCounter = document.querySelector('.score-counter');
@@ -14,3 +14,21 @@ let turbo = 1;
 let score = 0;
 let speed = 500;
 let kartPosition = { y: 7, x: 3 };
+
+function renderGrid() {
+    // per ogni riga della matrice
+    gridMatrix.forEach(function(rowCells){
+        // per ogni cella della riga
+        rowCells.forEach(function(cellContent){
+            // creo quadratino
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            // se c'è qualcosa, aggiungo classe con lo stesso nome
+            if(cellContent){
+                cell.classList.add(cellContent);
+            }
+            // metto quadratino in riga
+            grid.appendChild(cell);
+        })
+    })
+}
