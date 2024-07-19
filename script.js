@@ -40,3 +40,10 @@ function placeKart() {
     gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
 }
 
+// FUNZIONE DI RENDERING DI TUTTI GLI ELEMENTI
+function renderElements() {
+    // posiziono kart
+    placeKart();
+    // render griglia
+    renderGrid();
+}
