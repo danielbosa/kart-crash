@@ -38,6 +38,11 @@ function renderGrid() {
 // * FUNZIONI KART
 // posizionare il kart
 function placeKart() {
+    // recupero cella in cui devo mettere il kart
+    contentBeforeKart = gridMatrix[kartPosition.y][kartPosition.x];
+    if (contentBeforeKart) {
+        gameOver();
+    }
     // all'inizio metto kart nella posizione stabili da variabile globale kartPosition
     gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
 }
@@ -85,6 +90,13 @@ function shuffleRow(row) {
         [row[i], row[j]] = [row[j], row[i]];
     }
     return row;
+}
+
+// game over
+function gameOver() {
+    clearInterval(gameLoop);
+    endGameScreen.classList.remove('hidden');
+    finalScore.textContent = score;
 }
 
 // * FUNZIONE DI RENDERING DI TUTTI GLI ELEMENTI
