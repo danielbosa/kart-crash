@@ -137,6 +137,12 @@ function getBonusPoints() {
     score += 30;
     // aggiorno punteggio in pagina
     scoreCounter.textContent = score;
+    // aggiungo animazione
+    scoreCounter.classList.add('bonus');
+    //tolgo animazione / classe bonus dopo 1/2 secondo 
+    setTimeout(function () {
+        scoreCounter.classList.remove('bonus');
+    }, 500);
 }
 
 // velocità
