@@ -48,6 +48,26 @@ function renderGrid() {
     })
 }
 
+// inserire monetine
+function insertCoin(row) {
+    // prendo indice di prima cella vuota
+    const emptyIndex = row.indexOf('');
+    // inserisco coin nella cella vuota
+    row[emptyIndex] = 'coin';
+    // restituisco riga aggiornata
+    return row;
+}
+
+// c'è già una monetina?
+function hasCoin() {
+    let coinFound = false;
+    // per ogni riga controllo se c'è coin
+    gridMatrix.forEach(function () {
+        if (row.includes('coin')) coinFound = true;
+    })
+    return coinFound;
+}
+
 // * FUNZIONI KART
 // posizionare il kart
 function placeKart() {
@@ -88,8 +108,14 @@ function moveKart(direction) {
 function scrollObstacles() {
     // tolgo kart, perché deve rimanere lì: non scorre insieme alla griglia
     gridMatrix[kartPosition.y][kartPosition.x] = '';
+    // c'è già un coin?
+    const isCoinInGame = hasCoin();
     // recupero ultima riga perché poi la inserisco in cima
     let lastRow = gridMatrix.pop();
+    // inserisco riga con monetina se non ci sono coin in gioco
+    if (!isCoinInGame) {
+        lastRow = insertCoin(lastRow);
+    }
     // mescolo elementi di riga
     lastRow = shuffleRow(lastRow);
     // riporto ultima riga in cima
