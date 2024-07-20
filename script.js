@@ -95,8 +95,10 @@ function shuffleRow(row) {
 // game over
 function gameOver() {
     clearInterval(gameLoop);
-    endGameScreen.classList.remove('hidden');
     finalScore.textContent = score;
+    endGameScreen.classList.remove('hidden');
+    // focus su tasto enter
+    playAgainButton.focus();
 }
 
 // * FUNZIONE DI RENDERING DI TUTTI GLI ELEMENTI
@@ -162,6 +164,11 @@ document.addEventListener('keyup', function (e) {
             break;
         default: return;
     }
+})
+
+// play again
+playAgainButton.addEventListener('click', function () {
+    location.reload;
 })
 
 // ESECUZIONE GIOCO
