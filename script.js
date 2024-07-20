@@ -15,6 +15,19 @@ let score = 0;
 let speed = 500;
 let kartPosition = { y: 7, x: 3 };
 
+// Prepariamo la griglia iniziale
+const gridMatrix = [
+    ['', '', '', '', '', 'grass', ''],
+    ['', 'cones', '', '', '', '', 'fence'],
+    ['', '', 'rock', '', '', '', ''],
+    ['fence', '', '', '', '', '', ''],
+    ['', '', 'grass', '', '', 'water', ''],
+    ['', '', '', '', 'cones', '', ''],
+    ['', 'water', '', '', '', '', ''],
+    ['', '', '', '', '', '', ''],
+    ['', '', '', '', '', 'rock', ''],
+];
+
 function renderGrid() {
     // svuoto griglia
     grid.innerHTML = '';
@@ -38,9 +51,11 @@ function renderGrid() {
 // * FUNZIONI KART
 // posizionare il kart
 function placeKart() {
-    // recupero cella in cui devo mettere il kart
+    // recupero cella in cui devo mettere il kart e verifico cosa contiene
     contentBeforeKart = gridMatrix[kartPosition.y][kartPosition.x];
-    if (contentBeforeKart) {
+    if (contentBeforeKart === 'coin') {
+        getBonusPoints();
+    } else if (contentBeforeKart) {
         gameOver();
     }
     // all'inizio metto kart nella posizione stabili da variabile globale kartPosition
@@ -113,6 +128,14 @@ function renderElements() {
 // punteggio
 function updateScore() {
     score++;
+    scoreCounter.textContent = score;
+}
+
+// bonus
+function getBonusPoints() {
+    // aumento punteggio di 30
+    score += 30;
+    // aggiorno punteggio in pagina
     scoreCounter.textContent = score;
 }
 
