@@ -1,4 +1,4 @@
-// FASE DI PREPARAZIONE
+// * FASE DI PREPARAZIONE
 // Recupero gli elementi di interesse dalla pagina
 const grid = document.querySelector('.grid');
 const scoreCounter = document.querySelector('.score-counter');
@@ -35,7 +35,7 @@ function renderGrid() {
     })
 }
 
-// FUNZIONI KART
+// * FUNZIONI KART
 // posizionare il kart
 function placeKart() {
     // all'inizio metto kart nella posizione stabili da variabile globale kartPosition
@@ -62,8 +62,7 @@ function moveKart(direction) {
     renderElements();
 }
 
-
-// FUNZIONI OSTACOLI
+// * FUNZIONI OSTACOLI
 // funzione per far scorrere ostacoli
 
 function scrollObstacles() {
@@ -88,7 +87,7 @@ function shuffleRow(row) {
     return row;
 }
 
-// FUNZIONE DI RENDERING DI TUTTI GLI ELEMENTI
+// * FUNZIONE DI RENDERING DI TUTTI GLI ELEMENTI
 function renderElements() {
     // posiziono kart
     placeKart();
@@ -96,7 +95,25 @@ function renderElements() {
     renderGrid();
 }
 
-// EVENTI DI GIOCO
+// * PUNTI E VELOCITA'
+// punteggio
+function updateScore() {
+    score++;
+    scoreCounter.textContent = score;
+}
+
+// * FLUSSO DI GIOCO
+// funzione che raggruppa funz cicliche
+function gameFlow(){
+    // aumenta punteggio al passare del tempo
+    updateScore()
+    // aumenta velocità
+
+    // fai scorrere ostacoli
+    scrollObstacles();
+}
+
+// * EVENTI DI GIOCO
 // Click su bottone LEFT
 leftButton.addEventListener('click', function () {
     moveKart('left');
@@ -122,4 +139,5 @@ document.addEventListener('keyup', function (e) {
 
 // ESECUZIONE GIOCO
 // scrollo automaticamente la griglia con gli ostacoli
-setInterval(scrollObstacles, speed);
+setInterval(gameFlow, speed);
+
