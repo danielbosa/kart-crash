@@ -102,13 +102,28 @@ function updateScore() {
     scoreCounter.textContent = score;
 }
 
+// velocità
+function increaseSpeed() {
+    // imposto limite di velocità oltre cui non incrementa speed
+    if (speed > 100) {
+        // interrompo flusso
+        clearInterval(gameLoop);
+        // incremento velocità (decrementando intervallo!)
+        speed -= 50;
+        // riavvio flusso
+        gameLoop = setInterval(gameFlow, speed);
+    }
+}
+
 // * FLUSSO DI GIOCO
 // funzione che raggruppa funz cicliche
-function gameFlow(){
+function gameFlow() {
     // aumenta punteggio al passare del tempo
     updateScore()
     // aumenta velocità
-
+    if (turbo == 1) {
+        increaseSpeed();
+    }
     // fai scorrere ostacoli
     scrollObstacles();
 }
@@ -139,5 +154,5 @@ document.addEventListener('keyup', function (e) {
 
 // ESECUZIONE GIOCO
 // scrollo automaticamente la griglia con gli ostacoli
-setInterval(gameFlow, speed);
+let gameLoop = setInterval(gameFlow, speed);
 
