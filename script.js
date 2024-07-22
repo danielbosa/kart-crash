@@ -188,6 +188,17 @@ function increaseSpeed() {
     }
 }
 
+//turbo
+function turboBoost(){
+    // aumento turbo e mostro tachimetro corretto
+    if(turbo !== 4){
+        turbo++;
+        console.log(turbo);
+        turboButton.innerHTML = `
+        <img src="images/gauge-${turbo}.png" alt="turbo gauge">`
+    }
+}
+
 // * FLUSSO DI GIOCO
 // funzione che raggruppa funz cicliche
 function gameFlow() {
@@ -202,6 +213,11 @@ function gameFlow() {
 }
 
 // * EVENTI DI GIOCO
+// Click su bottone TURBO
+turboButton.addEventListener('click', function () {
+    turboBoost();
+});
+
 // Click su bottone LEFT
 leftButton.addEventListener('click', function () {
     moveKart('left');
@@ -221,6 +237,8 @@ document.addEventListener('keyup', function (e) {
         case 'ArrowRight':
             moveKart('right');
             break;
+            case ' ':
+                turboBoost();
         default: return;
     }
 })
