@@ -1,6 +1,10 @@
 // * FASE DI PREPARAZIONE
+// variabili per prendere elementi del dom
+const one = document.querySelector.bind(document);
+const all = document.querySelectorAll.bind(document);
+
 // Recupero gli elementi di interesse dalla pagina
-const grid = document.querySelector('.grid');
+const grid = one('.grid');
 const scoreCounter = document.querySelector('.score-counter');
 const leftButton = document.querySelector('.left-button');
 const rightButton = document.querySelector('.right-button');
