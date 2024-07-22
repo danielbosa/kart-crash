@@ -1,17 +1,17 @@
 // * FASE DI PREPARAZIONE
 // variabili per prendere elementi del dom
 const one = document.querySelector.bind(document);
-const all = document.querySelectorAll.bind(document);
+//const all = document.querySelectorAll.bind(document);
 
 // Recupero gli elementi di interesse dalla pagina
 const grid = one('.grid');
-const scoreCounter = document.querySelector('.score-counter');
-const leftButton = document.querySelector('.left-button');
-const rightButton = document.querySelector('.right-button');
-const endGameScreen = document.querySelector('.end-game-screen');
-const playAgainButton = document.querySelector('.play-again');
-const finalScore = document.querySelector('.final-score');
-const turboButton = document.querySelector('#turbo');
+const scoreCounter = one('.score-counter');
+const leftButton = one('.left-button');
+const rightButton = one('.right-button');
+const endGameScreen = one('.end-game-screen');
+const playAgainButton = one('.play-again');
+const finalScore = one('.final-score');
+const turboButton = one('#turbo');
 
 // Impostazioni di partenza
 let turbo = 0;
