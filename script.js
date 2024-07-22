@@ -10,7 +10,7 @@ const finalScore = document.querySelector('.final-score');
 const turboButton = document.querySelector('#turbo');
 
 // Impostazioni di partenza
-let turbo = 1;
+let turbo = 0;
 let score = 0;
 let speed = 500;
 let kartPosition = { y: 7, x: 3 };
@@ -62,7 +62,7 @@ function insertCoin(row) {
 function hasCoin() {
     let coinFound = false;
     // per ogni riga controllo se c'è coin
-    gridMatrix.forEach(function () {
+    gridMatrix.forEach(function (row) {
         if (row.includes('coin')) coinFound = true;
     })
     return coinFound;
@@ -72,7 +72,7 @@ function hasCoin() {
 // posizionare il kart
 function placeKart() {
     // recupero cella in cui devo mettere il kart e verifico cosa contiene
-    contentBeforeKart = gridMatrix[kartPosition.y][kartPosition.x];
+    let contentBeforeKart = gridMatrix[kartPosition.y][kartPosition.x];
     if (contentBeforeKart === 'coin') {
         getBonusPoints();
     } else if (contentBeforeKart) {
@@ -136,7 +136,7 @@ function shuffleRow(row) {
 // game over
 function gameOver() {
     clearInterval(gameLoop);
-    finalScore.textContent = score;
+    finalScore.innerText = score;
     endGameScreen.classList.remove('hidden');
     // focus su tasto enter
     playAgainButton.focus();
@@ -154,7 +154,7 @@ function renderElements() {
 // punteggio
 function updateScore() {
     score++;
-    scoreCounter.textContent = score;
+    scoreCounter.innerText = score;
 }
 
 // bonus
@@ -162,7 +162,7 @@ function getBonusPoints() {
     // aumento punteggio di 30
     score += 30;
     // aggiorno punteggio in pagina
-    scoreCounter.textContent = score;
+    scoreCounter.innerText = score;
     // aggiungo animazione
     scoreCounter.classList.add('bonus');
     //tolgo animazione / classe bonus dopo 1/2 secondo 
@@ -223,7 +223,7 @@ document.addEventListener('keyup', function (e) {
 
 // play again
 playAgainButton.addEventListener('click', function () {
-    location.reload;
+    location.reload();
 })
 
 // ESECUZIONE GIOCO
