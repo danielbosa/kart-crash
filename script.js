@@ -14,7 +14,7 @@ const finalScore = one('.final-score');
 const turboButton = one('#turbo');
 
 // Impostazioni di partenza
-let turbo = 0;
+let turbo = 1;
 let score = 0;
 let speed = 500;
 let kartPosition = { y: 7, x: 3 };
@@ -191,11 +191,10 @@ function increaseSpeed() {
 //turbo
 function turboBoost(){
     // aumento turbo e mostro tachimetro corretto
-    if(turbo !== 4){
-        turbo++;
-        console.log(turbo);
+    if(turbo < 4){
         turboButton.innerHTML = `
-        <img src="images/gauge-${turbo}.png" alt="turbo gauge">`
+        <img src="images/gauge-${++turbo}.png" alt="turbo gauge">`;
+        increaseSpeed();
     }
 }
 
@@ -204,10 +203,7 @@ function turboBoost(){
 function gameFlow() {
     // aumenta punteggio al passare del tempo
     updateScore()
-    // aumenta velocità
-    if (turbo == 1) {
-        increaseSpeed();
-    }
+
     // fai scorrere ostacoli
     scrollObstacles();
 }
